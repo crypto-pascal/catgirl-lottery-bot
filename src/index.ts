@@ -1,11 +1,12 @@
 import { isAfter } from 'date-fns'
-
+import dotenv from 'dotenv'
 import { BscScraper } from './lib/bsc-scraper'
 import { TelegramBot } from './lib/telegram-bot'
 import { formatNumber } from './lib/utils'
 
-const telegramApiToken = '1890492242:AAHYKdT1Vmh-duDMn_Kz3-GeovhXJUvLtbU'
-const chatId = -1001205443389
+dotenv.config()
+const telegramApiToken = process.env.TELEGRAM_API_TOKEN
+const chatId = Number(process.env.TELEGRAM_CHAT_ID)
 
 const bot = new TelegramBot(telegramApiToken)
 
